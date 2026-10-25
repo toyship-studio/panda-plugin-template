@@ -1,0 +1,18 @@
+# Publishes the plugin to pandaengine.dev when a version tag is pushed (git tag v1.0.0 && git push
+# --tags). Needs the repository secret PANDA_PUBLISH_TOKEN: a publish token from Account → Tokens on
+# the portal. The archive is checked before the upload, and the portal checks it again.
+name: Publish
+on:
+  push:
+    tags: ["v*"]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node tools/publish.mjs .
+        env:
+          PANDA_PUBLISH_TOKEN: ${{ secrets.PANDA_PUBLISH_TOKEN }}

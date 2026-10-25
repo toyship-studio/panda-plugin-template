@@ -1,0 +1,14 @@
+{
+    "manifestVersion": 1,
+    "id": "io.github.your-login.your-plugin",
+    "name": "Your Plugin",
+    "version": "0.1.0",
+    "description": "Run `node tools/init.mjs` to fill this manifest in.",
+    "license": "MIT",
+    "engine": "^0.1.0",
+    "parts": ["data"],
+    "authors": [],
+    "category": "themes",
+    "tags": [],
+    "unlisted": false
+}
